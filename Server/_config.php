@@ -6,7 +6,7 @@ $currentProjects = array(
 );
 
 // Use this to merge the queue of "another-project" in the queue of "example". 
-// This can for example be usefull to have a small group of fuzzers working with a different version of the binary to 
+// This can for example be useful to have a small group of fuzzers working with a different version of the binary to provide input for a bigger group of normal clients or to run the same binary multiple times on a single client.
 $aggregateMap = array(
     //'example' => array('another-project'),
 );
