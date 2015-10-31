@@ -30,6 +30,15 @@ if (!isset($_GET['c']) || empty($_GET['c']) || preg_match('/^([a-zA-Z0-9-]+\.)*[
 
 $clientName = $_GET['c'];
 
+if (!file_exits($dataFolder . DIRECTORY_SEPARATOR . $projectName)) {
+    if (!mkdir($dataFolder . DIRECTORY_SEPARATOR . $projectName)) {
+        header('Content-Type: application/json');
+
+        echo json_encode(array('error' => 'Can\'t add client!'));
+        exit();
+    }
+}
+
 if (!file_exists($dataFolder . DIRECTORY_SEPARATOR . $projectName . DIRECTORY_SEPARATOR . $clientName)) {
     if (!mkdir($dataFolder . DIRECTORY_SEPARATOR . $projectName . DIRECTORY_SEPARATOR . $clientName)) {
         header('Content-Type: application/json');
